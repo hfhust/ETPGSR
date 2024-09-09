@@ -1,0 +1,60 @@
+MODEL:
+
+
+TRAIN:
+  train_data_dir: [
+          # /home/tcs1/data2/SR_datasets/90k/lmdb90k/train3/   # pre-train using synthetic data     
+           '/home/tcs1/data1/dataset/textzoom/train1',    # train with TextZoom data
+           '/home/tcs1/data1/dataset/textzoom/train2'
+          
+  ]
+  batch_size: 128
+  width: 128
+  height: 32
+  epochs: 5000
+  cuda:   True #True 
+  ngpu: 1
+  workers: 1
+  resume:  '/home/tcs1/data1/hefeng/TPGSRv4/ckpt/vis_TPGSR-TSRN-lbo-0507bk/' # ''  for training from scratch
+  ckpt_dir: './ckpt/with_test'
+  voc_type: 'all' #'digits lower upper all'
+  saveInterval: 200
+  displayInterval: 50 #display loss
+  adadelta: False
+  lr: 0.001 
+  adam: True
+  optimizer: "Adam"
+  beta1: 0.5
+  manualSeed: 1234
+  max_len: 100
+  keep_ratio: False
+  down_sample_scale: 2
+
+  VAL:
+    val_data_dir: [
+             
+            '/home/tcs1/data1/dataset/textzoom/test/easy',
+            '/home/tcs1/data1/dataset/textzoom/test/medium',
+            '/home/tcs1/data1/dataset/textzoom/test/hard',
+          
+            # '/home/tcs1/data2/SR_datasets/scene_text/dataset/commonLR/ic15_lmdb_noise_blur/',
+            #  '/home/tcs1/data2/SR_datasets/scene_text/dataset/commonLR/svt_lmdb_noise_blur/',
+          
+    ]
+    n_vis: 10
+    vis_dir: 'demo'
+    valInterval: 200 #-1, val at the end of epoch
+    rec_pretrained: 'aster_demo.pth.tar'
+    moran_pretrained: 'moran_demo.pth'
+    crnn_pretrained:   'crnn.pth' 
+    crnn_densenet_pretrained: 'checkpoint_v5-52-Eng.pth.tar' 
+
+TEST:
+  checkpoint: ''
+  test_data_dir: [
+  ]
+
+CONVERT:
+  image_dir:
+  lmdb_dir:
+  n_convert: 10
