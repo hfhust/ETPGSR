@@ -5,4 +5,8 @@
     1) pre-train with synthetic HR-LR dataset (For making pre-training HR-LR dataset from Synth90k, run  ./dataset/create_lmdb2.py, the pretrained neural degradation operators are in ./pretrained_neural_degradation_operators/)
      2) train with TextZoom's training set
 3. For test:  sh test.sh 
-The trained TP Generator, SR model and neural degradation operators can be downloaded from Baidu drive: https://pan.baidu.com/s/1V_E-faeC8LmDTu9k-fKANQ?pwd=tkf5
+The trained TP Generator, SR model and neural degradation operators can be downloaded from Baidu drive:
+pretrained_neural_degradation_operators  https://pan.baidu.com/s/1DQUXUc_3uJBkC2P6zi7nbQ?pwd=thrk 
+Pretrained model weights:  https://pan.baidu.com/s/1xGT6FP9CemaYbxUzXgAyPA?pwd=thrk 
+
+
